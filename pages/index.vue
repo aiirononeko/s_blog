@@ -1,63 +1,55 @@
 <template>
-  <div>
-    <template v-if="posts.length">
-      <ul v-for="(post, i) in posts" :key="i">
-        <li>{{ post.fields.title }}</li>
-        <ul>
-          <li>{{ post.fields.body }}</li>
-          <li>{{ post.fields.publishDate }}</li>
-        </ul>
-      </ul>
-    </template>
-    <template v-else>
-      投稿された記事はありません。
-    </template>
-  </div>
+  <el-container>
+    <el-header>
+      <Header/>
+    </el-header>
+    <el-container style="width: 80%; margin: 0 auto;">
+      <el-main>
+        <h2 style="text-align: center; margin: 30px 0;">New Posts</h2>
+        <el-row>
+          <Posts
+            v-for="(post, i) in posts"
+            :key="i"
+            :title="post.fields.title"
+            :image="post.fields.headerImage"
+            :date="post.fields.publishDate"
+            :tags="post.fields.tags"
+          />
+        </el-row>
+        <h2 style="text-align: center; margin: 30px 0;">Popular Tags</h2>
+        <Tags
+        />
+      </el-main>
+    </el-container>
+    <el-footer>
+      <Footer/>
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
 import client from '~/plugins/contentful'
+
+import Header from '~/components/shared/Header'
+import Posts from '~/components/top/Posts'
+import Tags from '~/components/top/Tags'
+import Footer from '~/components/shared/Footer'
 export default {
-  async asyncData({ env }) {
-    let posts = []
-    await client.getEntries({
-      content_type: env.CTF_BLOG_POST_TYPE_ID,
-      order: '-fields.publishDate'
-    }).then(res => (posts = res.items)).catch(console.error)
-    return { posts }
+  components: {
+    Header,
+    Posts,
+    Tags,
+    Footer
+  },
+  asyncData({ env }) {
+    return client
+      .getEntries({ content_type: env.CTF_BLOG_POST_TYPE_ID })
+      .then(entries => {
+        return {
+          posts: entries.items
+        }
+      })
+      .catch(console.error)
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
