@@ -7,13 +7,14 @@
         </ul>
         <h2 class="post-title">{{ title }}</h2>
         <p class="post-date">{{ getDate() }}</p>
-
-        <!-- classをバインディングすると警告でるの何でだろ -->
-        <el-image :src="image.fields.file.url" :class="top-image">
-          <div slot="placeholder" class="image-slot">
-            Loading<span class="dot">...</span>
-          </div>
-        </el-image>
+        <lazy-component>
+          <!-- classをバインディングすると警告でるの何でだろ -->
+          <el-image :src="image.fields.file.url" :class="top-image">
+            <div slot="placeholder" class="image-slot">
+              Loading<span class="dot">...</span>
+            </div>
+          </el-image>
+        </lazy-component>
       </div>
     </el-card>
   </el-col>

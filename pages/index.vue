@@ -4,7 +4,7 @@
       <Header/>
     </el-header>
     <el-container style="width: 80%; margin: 0 auto;">
-      <el-main>
+      <el-main style="margin-bottom: 50px;">
         <h2 style="text-align: center; margin: 40px 0;">New Posts</h2>
         <el-row>
           <Posts
@@ -16,9 +16,6 @@
             :tags="post.fields.tags"
           />
         </el-row>
-        <h2 style="text-align: center; margin: 40px 0;">Popular Tags</h2>
-        <Tags
-        />
       </el-main>
     </el-container>
     <el-footer>
