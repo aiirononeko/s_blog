@@ -14,6 +14,7 @@
             :image="post.fields.headerImage"
             :date="post.fields.publishDate"
             :tags="post.fields.tags"
+            :id="post.sys.id"
           />
         </el-row>
       </el-main>
@@ -29,13 +30,11 @@ import client from '~/plugins/contentful'
 
 import Header from '~/components/shared/Header'
 import Posts from '~/components/top/Posts'
-import Tags from '~/components/shared/Tags'
 import Footer from '~/components/shared/Footer'
 export default {
   components: {
     Header,
     Posts,
-    Tags,
     Footer
   },
   asyncData({ env }) {

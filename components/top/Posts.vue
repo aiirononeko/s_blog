@@ -1,7 +1,7 @@
 <template>
   <el-col :span="8" style="margin-bottom: 25px;">
-    <el-card class="box-card" style="margin: 0 auto;">
-      <div class="box-card-items">
+    <el-card class="box-card" style="margin: 0 auto;" shadow="hover">
+      <div class="box-card-items" @click="$router.push(`/posts/${id}`)">
         <ul style="padding: 0;">
           <li v-for="(tag, i) in tags" :key="i" class="tag">{{ tag.fields.name }}</li>
         </ul>
@@ -27,6 +27,7 @@ export default {
     image: null,
     date: null,
     tags: null,
+    id: null
   },
   methods: {
     getDate() {
@@ -40,7 +41,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .top-image {
     width: 295px;
     height: 176px;
