@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header style="margin-bottom: 50px;">
+    <el-header style="margin-bottom: 80px;">
       <Header/>
     </el-header>
     <el-container style="width: 80%; margin: 0 auto;">

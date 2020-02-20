@@ -1,5 +1,5 @@
 <template>
-  <el-col :span="8" style="margin-bottom: 25px;">
+  <el-col :span="8" style="margin-bottom: 35px;">
     <el-card class="box-card" style="margin: 0 auto;" shadow="hover">
       <div class="box-card-items" @click="$router.push(`/posts/${id}`)">
         <ul style="padding: 0;">
