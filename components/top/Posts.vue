@@ -1,19 +1,20 @@
 <template>
-  <el-col :span="8" style="margin-bottom: 25px;">
-    <el-card class="box-card" style="margin: 0 auto;">
-      <div class="box-card-items">
+  <el-col :span="8" style="margin-bottom: 35px;">
+    <el-card class="box-card" style="margin: 0 auto;" shadow="hover">
+      <div class="box-card-items" @click="$router.push(`/posts/${id}`)">
         <ul style="padding: 0;">
           <li v-for="(tag, i) in tags" :key="i" class="tag">{{ tag.fields.name }}</li>
         </ul>
         <h2 class="post-title">{{ title }}</h2>
         <p class="post-date">{{ getDate() }}</p>
-
-        <!-- classをバインディングすると警告でるの何でだろ -->
-        <el-image :src="image.fields.file.url" :class="top-image">
-          <div slot="placeholder" class="image-slot">
-            Loading<span class="dot">...</span>
-          </div>
-        </el-image>
+        <lazy-component>
+          <!-- classをバインディングすると警告でるの何でだろ -->
+          <el-image :src="image.fields.file.url" :class="top-image">
+            <div slot="placeholder" class="image-slot">
+              Loading<span class="dot">...</span>
+            </div>
+          </el-image>
+        </lazy-component>
       </div>
     </el-card>
   </el-col>
@@ -26,6 +27,7 @@ export default {
     image: null,
     date: null,
     tags: null,
+    id: null
   },
   methods: {
     getDate() {
@@ -39,7 +41,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .top-image {
     width: 295px;
     height: 176px;
