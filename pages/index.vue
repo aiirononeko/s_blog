@@ -5,7 +5,7 @@
     </el-header>
     <el-container style="width: 80%; margin: 0 auto;">
       <el-main>
-        <h2 style="text-align: center; margin: 30px 0;">New Posts</h2>
+        <h2 style="text-align: center; margin: 40px 0;">New Posts</h2>
         <el-row>
           <Posts
             v-for="(post, i) in posts"
@@ -16,7 +16,7 @@
             :tags="post.fields.tags"
           />
         </el-row>
-        <h2 style="text-align: center; margin: 30px 0;">Popular Tags</h2>
+        <h2 style="text-align: center; margin: 40px 0;">Popular Tags</h2>
         <Tags
         />
       </el-main>
@@ -32,7 +32,7 @@ import client from '~/plugins/contentful'
 
 import Header from '~/components/shared/Header'
 import Posts from '~/components/top/Posts'
-import Tags from '~/components/top/Tags'
+import Tags from '~/components/shared/Tags'
 import Footer from '~/components/shared/Footer'
 export default {
   components: {
