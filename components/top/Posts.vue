@@ -1,26 +1,23 @@
 <template>
   <el-col :span="8" style="margin-bottom: 35px;">
-    <el-card class="box-card" style="margin: 0 auto;" shadow="hover">
-      <div class="box-card-items" @click="$router.push(`/posts/${id}`)">
-        <ul style="padding: 0;">
-          <li v-for="(tag, i) in tags" :key="i" class="tag">{{ tag.fields.name }}</li>
-        </ul>
-        <h2 class="post-title">{{ title }}</h2>
-        <p class="post-date">{{ getDate() }}</p>
-        <lazy-component>
+    <lazy-component>
+      <el-card class="box-card" style="margin: 0 auto;" shadow="hover">
+        <div class="box-card-items" @click="$router.push(`/posts/${id}`)">
+          <ul style="padding: 0;">
+            <li v-for="(tag, i) in tags" :key="i" class="tag">{{ tag.fields.name }}</li>
+          </ul>
+          <h2 class="post-title">{{ title }}</h2>
+          <p class="post-date">{{ getDate() }}</p>
           <!-- classをバインディングすると警告でるの何でだろ -->
-          <el-image :src="image.fields.file.url" :class="top-image">
-            <div slot="placeholder" class="image-slot">
-              Loading<span class="dot">...</span>
-            </div>
-          </el-image>
-        </lazy-component>
-      </div>
-    </el-card>
+          <el-image :src="image.fields.file.url" :class="top-image" v-loading="loading"></el-image>
+        </div>
+      </el-card>
+    </lazy-component>
   </el-col>
 </template>
 
 <script>
+import { Loading } from 'element-ui';
 export default {
   props: {
     title: null,
@@ -28,6 +25,11 @@ export default {
     date: null,
     tags: null,
     id: null
+  },
+  data() {
+    return {
+      loading: true
+    }
   },
   methods: {
     getDate() {

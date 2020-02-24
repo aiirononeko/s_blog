@@ -34,7 +34,9 @@
         </el-row>
         <h2 style="text-align: center; margin: 80px 0;">Let's Read My Posts!</h2>
           <el-row>
-            <el-col :span="3" v-for="(tag, i) in tags" :key="i"><el-button round>{{ tag.fields.name }}</el-button></el-col>
+            <el-col :span="3" v-for="(tag, i) in tags" :key="i">
+              <el-button round>{{ tag.fields.name }}</el-button>
+            </el-col>
           </el-row>
       </el-main>
     </el-container>
