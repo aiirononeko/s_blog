@@ -34,6 +34,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/contentful',
     { src: '~plugins/vue-lazyload', ssr: false },
+    '~/plugins/vuelidate.js'
   ],
   /*
   ** Nuxt.js dev-modules
