@@ -5,7 +5,7 @@
     </el-header>
     <el-container style="width: 80%; margin: 0 auto;">
       <el-main style="margin-bottom: 50px;">
-        <h2 style="text-align: center; margin: 80px 0;">Posts</h2>
+        <h2 class="posts-title">Posts</h2>
         <el-row>
           <Posts
             v-for="(post, i) in posts"
@@ -49,3 +49,17 @@ export default {
   }
 }
 </script>
+
+<style>
+  .posts-title {
+    text-align: center;
+    margin: 80px 0;
+  }
+
+  @media screen and (max-width:480px) {
+    .posts-title {
+      margin: 30px 0;
+      margin-bottom: 50px;
+    }
+  }
+</style>

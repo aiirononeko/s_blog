@@ -2,14 +2,16 @@
   <header>
     <el-row :gutter="20">
       <el-col :span="3"><nuxt-link to="/" class="blog-title">Excelsior</nuxt-link></el-col>
-      <el-col :span="3" :offset="12"><nuxt-link to="/about">Excelsiorについて</nuxt-link></el-col>
-      <el-col :span="2"><nuxt-link to="/contact">Contact</nuxt-link></el-col>
-      <el-col :span="3"><el-button icon="el-icon-search" circle style="margin-top: 10px;"></el-button></el-col>
+      <el-col :span="3" :offset="12" class="header-link"><nuxt-link to="/about">Excelsiorについて</nuxt-link></el-col>
+      <el-col :span="2" class="header-link2"><nuxt-link to="/contact">Contact</nuxt-link></el-col>
+      <el-col :span="3" class="header-link3"><el-button icon="el-icon-search" circle style="margin-top: 10px;"></el-button></el-col>
     </el-row>
   </header>
 </template>
 
 <style>
+
+  /* ノートPC用スタイル */
   header {
     width: 100%;
     background-color: #fff;
@@ -27,5 +29,41 @@
     line-height: 60px;
     font-weight: bold;
     font-size: 15px;
+  }
+
+  /* スマホ用スタイル */
+  @media screen and (max-width:480px) {
+    header {
+      height: 30px;
+    }
+
+    .blog-title {
+      font-size: 16px;
+      margin-left: 20px;
+    }
+
+    a {
+      line-height: 30px;
+      font-size: 8px;
+    }
+
+    .header-link {
+      width: 130px;
+      margin-top: 17px;
+      margin-left: 100px;
+    }
+
+    .header-link2 {
+      margin-top: 17px;
+    }
+
+    .header-link3 {
+      display: none;
+    }
+  }
+
+  /* デスクトップPC用スタイル */
+  @media screen and (min-width:781px) {
+    
   }
 </style>
