@@ -44,7 +44,7 @@
 
     a {
       line-height: 30px;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .header-link {
