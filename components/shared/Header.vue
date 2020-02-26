@@ -38,13 +38,13 @@
     }
 
     .blog-title {
-      font-size: 16px;
+      font-size: 18px;
       margin-left: 20px;
     }
 
     a {
       line-height: 30px;
-      font-size: 8px;
+      font-size: 12px;
     }
 
     .header-link {

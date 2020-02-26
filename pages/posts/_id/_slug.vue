@@ -9,7 +9,7 @@
           <ul style="padding: 0; margin-top: 50px;">
             <li v-for="(tag, i) in post.fields.tags" :key="i" class="tag">{{ tag.fields.name }}</li>
           </ul>
-          <h1 style="margin: 40px 0; font-size: 38px;">{{ post.fields.title }}</h1>
+          <h1 class="post-title">{{ post.fields.title }}</h1>
           <p class="date">{{ getDate(post.fields.publishDate) }}</p>
           <el-image :src="post.fields.headerImage.fields.file.url" style="margin-bottom: 50px;">
             <div slot="placeholder" class="image-slot">
@@ -87,5 +87,27 @@ export default {
     font-size: 14px;
     margin-bottom: 50px;
     color: #808080;
+  }
+
+  .post-title {
+    margin: 40px 0;
+    font-size: 38px;
+  }
+
+  @media screen and (max-width:480px) {
+    .tag {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .date {
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .post-title {
+      font-size: 20px;
+      margin-top: 0px;
+    }
   }
 </style>
