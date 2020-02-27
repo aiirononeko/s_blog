@@ -4,10 +4,32 @@
       <el-col :span="3"><nuxt-link to="/" class="blog-title">Excelsior</nuxt-link></el-col>
       <el-col :span="3" :offset="12" class="header-link"><nuxt-link to="/about">Excelsiorについて</nuxt-link></el-col>
       <el-col :span="2" class="header-link2"><nuxt-link to="/contact">Contact</nuxt-link></el-col>
-      <el-col :span="3" class="header-link3"><el-button icon="el-icon-search" circle style="margin-top: 10px;"></el-button></el-col>
+      <el-col :span="3" class="header-link3"><el-button icon="el-icon-search" circle style="margin-top: 10px;" @click="dialogVisible = true"></el-button></el-col>
+      <el-dialog
+        title="タグで検索する"
+        :visible.sync="dialogVisible"
+        width="30%"
+      >
+        <ul>
+          <li v-for="(tag, i) in tags" :key="i">{{ tag.fields.name }}</li>
+        </ul>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="dialogVisible = false">Search</el-button>
+        </span>
+      </el-dialog>
     </el-row>
   </header>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        dialogVisible: false
+      }
+    }
+  }
+</script>
 
 <style>
 

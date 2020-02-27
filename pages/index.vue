@@ -39,7 +39,10 @@ export default {
   },
   asyncData({ env }) {
     return client
-      .getEntries({ content_type: env.CTF_BLOG_POST_TYPE_ID })
+      .getEntries({
+        content_type: env.CTF_BLOG_POST_TYPE_ID,
+        'fields.tags.sys.id': ''
+      })
       .then(entries => {
         return {
           posts: entries.items

@@ -60,7 +60,6 @@ export default {
         'sys.id': params.id
       })
       .then(entries => {
-        console.log(entries.items[0])
         return {
           post: entries.items[0]
         }

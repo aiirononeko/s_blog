@@ -60,10 +60,10 @@
         <h2 class="about-title" style="margin-bottom: 60px; margin-top: 60px;">Let's Read My Posts!</h2>
           <el-row>
             <el-col :span="3" v-for="(tag, i) in tags" :key="i" class="about-pc">
-              <el-button round>{{ tag.fields.name }}</el-button>
+              <el-button round @click="searchTag(tag.sys.id)">{{ tag.fields.name }}</el-button>
             </el-col>
             <el-col :span="24" v-for="(tag, i) in tags" :key="i" class="about-mobile">
-              <el-button round style="margin-bottom:20px;">{{ tag.fields.name }}</el-button>
+              <el-button round style="margin-bottom:20px;" @click="searchTag(tag.sys.id)">{{ tag.fields.name }}</el-button>
             </el-col>
           </el-row>
       </el-main>
@@ -92,7 +92,13 @@
         }
       })
       .catch(console.error)
-  }
+    },
+    methods: {
+      searchTag(tag) {
+        console.log(tag)
+        this.$router.push('/')
+      }
+    }
   }
 </script>
 
