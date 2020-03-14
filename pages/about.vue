@@ -43,9 +43,13 @@
               現在は化粧品関係の会社に就職しており、日々美容の研究をしている、そんな22歳です。<br>
             </p>
           </el-col>
-          <el-col :span="12" class="about-pc"><div style="background-color: gray; width: 500px; height: 500px; margin-left: 30px;"></div></el-col>
+          <el-col :span="12" class="about-pc">
+            <img src="../assets/IMG_4627.JPG">
+          </el-col>
 
-          <el-col :span="24" class="about-mobile"><div class="about-profile"></div></el-col>
+          <el-col :span="24" class="about-mobile">
+            <img src="../assets/IMG_4627.JPG" class="about-profile">
+          </el-col>
           <el-col :span="24" class="about-mobile">
             <p class="about-message2">
               申し遅れましたが、わたくし、「ハヤト」と申します。<br>
@@ -121,15 +125,14 @@
 
   .about-message2 {
     margin-right: 50px;
-    margin-top: 10px;
+    margin-top: 50px;
     line-height: 45px;
     letter-spacing: 3px;
   }
 
   .about-profile {
-    background-color: gray;
     width: 500px;
-    height: 500px;
+    height: 350px;
     margin-left: 30px;
   }
 
@@ -161,9 +164,8 @@
     }
 
     .about-profile {
-      background-color: gray;
       width: 250px;
-      height: 250px;
+      height: 300px;
       margin: 30px auto;
       margin-bottom: 30px;
     }
